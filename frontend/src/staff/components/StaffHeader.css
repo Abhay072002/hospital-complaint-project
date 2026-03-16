@@ -1,0 +1,13 @@
+.header-nav .nav-link {
+  color: black;
+  font-weight: 600;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.header-nav .nav-link:hover {
+  color:  rgb(4, 4, 255);
+  border-bottom: 2px solid  rgb(4, 4, 255);
+}
+

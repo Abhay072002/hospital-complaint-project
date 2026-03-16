@@ -1,0 +1,55 @@
+*{
+    font-family: sans-serif;
+}
+.navbar-wrapper{
+    background-color: rgb(221, 245, 250);
+    display: flex;
+    align-items: center;
+    min-height: 60vh;
+padding: 80px 0;
+    
+}
+.main-heading h1{
+    color: blue;
+    font-weight: bold;
+    font-size:50px;
+}
+.heading-black{
+    color: black;
+}
+.heading-blue{
+    color: rgb(13, 110, 253);
+}
+
+.home-btns .complaint-btn{
+    background-color: rgb(13, 110, 253);
+    color: white;
+}
+.home-btns .track-btn{
+    background-color: #008080;
+    color: white;
+}
+.home-btns div {
+  width: 100%;
+  max-width: 300px;
+}
+
+.complaint-btn:hover{
+    background-color: rgb(10, 90, 220);
+    transition: 0.3s;
+}
+
+.track-btn:hover{
+    background-color: #006666;
+    transition: 0.3s;
+}
+.how-it-works-card{
+    border-radius: 18px;
+    transition: all 0.35s ease;
+    cursor: pointer;
+}
+.how-it-works-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
