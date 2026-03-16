@@ -48,9 +48,10 @@ const StaffLogin = () => {
                 password: values.password,
               });
 
-              setUser(res.data.user);
-              toast.success("Logged in Successfully");
-              navigate("/staff");
+               localStorage.setItem(`user-${res.data.user.role}`, JSON.stringify(res.data.user));
+    setUser(res.data.user);
+    toast.success("Logged in Successfully");
+    navigate("/staff");
             } catch (error) {
               toast.error(error.response?.data?.message || "Login failed");
             }
