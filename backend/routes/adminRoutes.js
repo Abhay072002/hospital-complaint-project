@@ -1,7 +1,7 @@
 const express = require("express");
 const { userAuth } = require("../middleware/auth");
 const { userAuthorize } = require("../middleware/role");
-const { createStaff, createTask, getAllStaff, getAllTasks, reassignTask, getDashboardStatus, getAllComplaints, assignComplaint } = require("../controllers/adminController");
+const { createStaff, createTask, getAllStaff, getAllTasks, reassignTask, getDashboardStatus, getAllComplaints, assignComplaint, deleteTask, deleteStaff } = require("../controllers/adminController");
 const router = express.Router();
 
 router.post(
@@ -55,4 +55,19 @@ router.patch(
     assignComplaint
 )
 
+router.delete(
+    "/tasks/:taskId",
+    userAuth,
+    userAuthorize(["admin"]),
+    deleteTask
+);
+
+
+
+router.delete(
+    "/staff/:staffId",
+    userAuth,
+    userAuthorize(["admin"]),
+    deleteStaff
+);
 module.exports =router;

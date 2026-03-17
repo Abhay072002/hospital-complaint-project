@@ -16,11 +16,21 @@ const TaskManagement = () => {
       console.log(error);
     }
   };
+  
 
   const handleReassign = (task) =>{
     setSelectedTask(task)
     setReassigningStaff(true);
-  }
+  };
+
+   const handleDelete = async (taskId) => {
+    try {
+      await api.delete(`/admin/tasks/${taskId}`);
+      fetchTasks();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     fetchTasks();
@@ -41,6 +51,7 @@ const TaskManagement = () => {
             <th>Assigned To</th>
             <th>Assigned By</th>
             <th>Action</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -89,6 +100,15 @@ const TaskManagement = () => {
                 >
                     Reassign
                 </Button>
+              </td>
+              <td>
+                <Button
+                    size="sm"
+                    variant="danger"
+                    onClick={() => handleDelete(task._id)}
+                  >
+                    Delete
+                  </Button>
               </td>
             </tr>
           ))}

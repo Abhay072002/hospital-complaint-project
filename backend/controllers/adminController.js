@@ -290,3 +290,57 @@ exports.assignComplaint = async (req,res) =>{
         });
   }
 }
+
+exports.deleteTask = async (req, res) => {
+  try {
+    const { taskId } = req.params;
+
+    const task = await Task.findById(taskId);
+
+    if (!task) {
+      return res.status(404).json({
+        success: false,
+        message: "Task not found",
+      });
+    }
+
+    await Task.findByIdAndDelete(taskId);
+
+    res.status(200).json({
+      success: true,
+      message: "Task deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+exports.deleteStaff = async (req, res) => {
+  try {
+    const { staffId } = req.params;
+
+    const staff = await User.findById(staffId);
+
+    if (!staff || staff.role !== "staff") {
+      return res.status(404).json({
+        success: false,
+        message: "Staff member not found",
+      });
+    }
+
+    await User.findByIdAndDelete(staffId);
+
+    res.status(200).json({
+      success: true,
+      message: "Staff deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};

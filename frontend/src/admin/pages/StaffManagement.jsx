@@ -16,11 +16,19 @@ const StaffManagement = () => {
             
         }
     }
+     const handleDelete = async (staffId) => {
+        try {
+            await api.delete(`/admin/staff/${staffId}`);
+            fetchStaff();
+        } catch (error) {
+            console.log(error);
+        }
+    }
     useEffect(() => {
       fetchStaff()
     }, []);
   return (
-    <div style={{ backgroundColor: "#f0f4f8", minHeight: "80vh" }}>
+    <div style={{ backgroundColor: "rgb(240, 244, 248)", minHeight: "80vh" }}>
         <Container>
             <div className=' d-flex justify-content-between py-3'>
                 <h2>Staff Management</h2>
@@ -34,6 +42,7 @@ const StaffManagement = () => {
                         <th>Department</th>
                         <th>Shift</th>
                         <th>Is Active</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +65,15 @@ const StaffManagement = () => {
                                 }>
                                     {staff.isActive ? "Active" :"inactive"}
                                 </Badge>
+                            </td>
+                            <td>
+                                <Button
+                                        size="sm"
+                                        variant="danger"
+                                        onClick={() => handleDelete(staff._id)}
+                                    >
+                                        Delete
+                                    </Button>
                             </td>
                         </tr>
                     ))}
