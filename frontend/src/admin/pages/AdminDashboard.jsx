@@ -10,16 +10,12 @@ import {  Bar } from "react-chartjs-2";
 
 const AdminDashboard = () => {
     const [stats, setStats] = useState({});
-    const [loading, setLoading] = useState(true);
-
     const fetchData = async () =>{
             try {
                 const res = await api.get("/admin/dashboard")
                 setStats(res.data)
             } catch (error) {
                 console.log(error);  
-            }finally{
-                setLoading(false);
             }
     }
 
@@ -56,56 +52,56 @@ const staffChartData = {
 };
 
   return (
-    <div style={{ backgroundColor: "#f0f4f8", minHeight: "80vh" }}>
+    <div style={{ backgroundColor: "rgb(240, 244, 248)", minHeight: "80vh" }}>
         <Container className=" py-3">
         <div>
           <h1 className=" fw-bold">Dashboard</h1>
         </div>
         <Row className=" m-4 g-3">
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center " style={{ borderLeft: "4px solid #0d6efd"}}>
+            <Card className="p-3 shadow-sm text-center " style={{ borderLeft: "4px solid rgb(13, 110, 253)"}}>
               <h2 className=" fw-bold text-primary">{stats.totalStaff}</h2>
               <p className=" text-muted">Total Staff</p>
             </Card>
           </Col>
           <Col md={3}>
-            <Card className="p-3  shadow-sm text-center" style={{ borderLeft: "4px solid #2aff46"}}>
+            <Card className="p-3  shadow-sm text-center" style={{ borderLeft: "4px solid #rgb(42, 255, 70)"}}>
               <h2 className=" fw-bold text-success">{stats.activeStaff}</h2>
               <p className=" text-muted">Active Staff</p>
             </Card>
           </Col>{" "}
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #fdb50d"}}>
-              <h2 className=" fw-bold"style={{color:"#ee8b27"}}>{stats.totalTasks}</h2>
+            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #rgb(253, 181, 13)"}}>
+              <h2 className=" fw-bold"style={{color:"#rgb(238, 139, 39)"}}>{stats.totalTasks}</h2>
               <p className=" text-muted">Total Tasks</p>
             </Card>
           </Col>{" "}
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #edfd0d"}}>
+            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid rgb(237, 253, 13)"}}>
               <h2 className=" fw-bold text-warning">{stats.pendingTasks}</h2>
               <p className=" text-muted">Pending Tasks</p>
             </Card>
           </Col>
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #0dfdf1"}}>
+            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid rgb(13, 253, 241)"}}>
               <h2 className=" fw-bold text-info">{stats.inProgressTasks}</h2>
               <p className=" text-muted">In Progress Tasks</p>
             </Card>
           </Col>
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center"style={{ borderLeft: "4px solid #00ff5e"}}>
+            <Card className="p-3 shadow-sm text-center"style={{ borderLeft: "4px solid rgb(0, 255, 94)"}}>
               <h2 className=" fw-bold text-success">{stats.completedTasks}</h2>
               <p className=" text-muted">Completed Tasks</p>
             </Card>
           </Col>
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #fd0d0d"}}>
-              <h2 className=" fw-bold" style={{color:"#fd1414"}}>{stats.highPriorityTasks}</h2>
+            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid rgb(253, 13, 13)"}}>
+              <h2 className=" fw-bold" style={{color:"#rgb(253, 20, 20)"}}>{stats.highPriorityTasks}</h2>
               <p className=" text-muted">High Priority Tasks</p>
             </Card>
           </Col>
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #dc3545"}}>
+            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid rgb(220, 53, 69)"}}>
               <h2 className=" fw-bold text-danger">{stats.overdueTasks}</h2>
               <p className=" text-muted">Overdue Tasks</p>
             </Card>

@@ -29,7 +29,7 @@ const AdminLogin = () => {
   return (
     <div
       className="d-flex justify-content-center align-items-center vh-100"
-      style={{ backgroundColor: "#f0f4f8" }}
+      style={{ backgroundColor: "rgb(240, 244, 248)" }}
     >
       <div
         className="bg-white p-5 rounded-4 shadow"

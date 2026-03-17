@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 const TrackComplaint = () => {
   const [complaintId, setComplaintId] = useState("");
   const [complaints, setComplaints] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const handleTrack = async () => {
     if (!complaintId) {
@@ -14,14 +13,11 @@ const TrackComplaint = () => {
       return;
     }
     try {
-      setLoading(true);
       const res = await api.get(`/complaints/track/${complaintId}`);
       setComplaints(res.data.complaints);
     } catch (error) {
       toast.error("Complaint not found. Please check your ID!");
       setComplaints([]);
-    } finally {
-      setLoading(false);
     }
   };
 

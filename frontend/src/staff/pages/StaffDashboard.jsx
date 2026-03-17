@@ -6,7 +6,6 @@ import { Badge, Card, Col, Container, Row, Table } from "react-bootstrap";
 const StaffDashboard = () => {
   const { user } = useAuth();
   const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const fetchTasks = async () => {
     try {
@@ -14,8 +13,6 @@ const StaffDashboard = () => {
       setTasks(res.data.tasks);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -33,7 +30,7 @@ const StaffDashboard = () => {
   ).length;
 
   return (
-    <div style={{ backgroundColor: "#f0f4f8", minHeight: "80vh" }}>
+    <div style={{ backgroundColor: "rgb(240, 244, 248)", minHeight: "80vh" }}>
       <Container className=" py-3">
         <div>
           <h3 className=" fw-bold">Welcome ,{user?.fullName} 👋</h3>
@@ -43,25 +40,25 @@ const StaffDashboard = () => {
         </div>
         <Row className=" m-4 g-3">
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center " style={{ borderLeft: "4px solid #0d6efd"}}>
+            <Card className="p-3 shadow-sm text-center " style={{ borderLeft: "4px solid #rgb(13, 110, 253)"}}>
               <h2 className=" fw-bold text-primary">{totalTasks}</h2>
               <p className=" text-muted">Total Tasks</p>
             </Card>
           </Col>{" "}
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #fdfd0d"}}>
-              <h2 className=" fw-bold" style={{color:"#eedd27"}}>{pendingTasks}</h2>
+            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #rgb(253, 253, 13)"}}>
+              <h2 className=" fw-bold" style={{color:"#rgb(253, 253, 13)"}}>{pendingTasks}</h2>
               <p className=" text-muted">Pending Tasks</p>
             </Card>
           </Col>{" "}
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #0dedfd"}}>
+            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #rgb(13, 237, 253)"}}>
               <h2 className=" fw-bold text-info">{inProgressTasks}</h2>
               <p className=" text-muted">In Progress Tasks</p>
             </Card>
           </Col>{" "}
           <Col md={3}>
-            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #0dfd45"}}>
+            <Card className="p-3 shadow-sm text-center" style={{ borderLeft: "4px solid #rgb(13, 253, 69)"}}>
               <h2 className=" fw-bold text-success">{completedTasks}</h2>
               <p className=" text-muted">Completed Tasks</p>
             </Card>

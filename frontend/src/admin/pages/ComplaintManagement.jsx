@@ -8,7 +8,6 @@ const ComplaintManagement = () => {
   const [complaints, setComplaints] = useState([]);
   const [assigningStaff, setAssigningStaff] = useState(false);
   const [selectedComplaint, setSelectedComplaint] = useState(null);
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const fetchComplaints = async () => {
@@ -17,12 +16,9 @@ const ComplaintManagement = () => {
       setComplaints(res.data.complaints);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
   useEffect(() => {
-    fetchComplaints();
     fetchComplaints();
   const interval = setInterval(() => {
     fetchComplaints();

@@ -8,7 +8,6 @@ const AllComplaints = () => {
   const [complaints,setComplaints] = useState([]);
     const [assigningStaff,setAssigningStaff] = useState(false);
       const [selectedComplaint,setSelectedComplaint] = useState(null);
-    const [loading,setLoading] = useState(true);
     const navigate = useNavigate();
 
     const fetchComplaints = async () =>{
@@ -17,8 +16,6 @@ const AllComplaints = () => {
             setComplaints(res.data.complaints);
         } catch (error) {
             console.log(error);
-        }finally{
-            setLoading(false)
         }
     }
     useEffect(() => {
@@ -31,7 +28,7 @@ const AllComplaints = () => {
     setAssigningStaff(true);
   }
   return (
-    <div style={{ backgroundColor: "#f0f4f8", minHeight: "80vh" }}>
+    <div style={{ backgroundColor: "rgb(240, 244, 248)", minHeight: "80vh" }}>
       <Container>
       <div className=" d-flex justify-content-between py-3">
         <h2>Complaint Management</h2>

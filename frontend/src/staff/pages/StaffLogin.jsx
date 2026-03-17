@@ -28,7 +28,7 @@ const StaffLogin = () => {
   return (
     <div
       className="d-flex justify-content-center align-items-center vh-100"
-      style={{ backgroundColor: "#f0f4f8" }}
+      style={{ backgroundColor: "rgb(240, 244, 248)" }}
     >
       <div
         className="bg-white p-5 rounded-4 shadow"
@@ -48,10 +48,13 @@ const StaffLogin = () => {
                 password: values.password,
               });
 
-               localStorage.setItem(`user-${res.data.user.role}`, JSON.stringify(res.data.user));
-    setUser(res.data.user);
-    toast.success("Logged in Successfully");
-    navigate("/staff");
+              localStorage.setItem(
+                `user-${res.data.user.role}`,
+                JSON.stringify(res.data.user),
+              );
+              setUser(res.data.user);
+              toast.success("Logged in Successfully");
+              navigate("/staff");
             } catch (error) {
               toast.error(error.response?.data?.message || "Login failed");
             }

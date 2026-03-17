@@ -6,7 +6,6 @@ import { Badge, Button, Card, Col, Container, Row } from "react-bootstrap";
 const MyTasks = () => {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("All");
-  const [loading, setLoading] = useState(true);
 
   const fetchTasks = async () => {
     try {
@@ -14,8 +13,6 @@ const MyTasks = () => {
       setTasks(res.data.tasks);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
 

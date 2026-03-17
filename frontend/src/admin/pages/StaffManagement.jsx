@@ -5,7 +5,6 @@ import CreateStaffModal from '../components/CreateStaffModal';
 
 const StaffManagement = () => {
     const [staff,setStaff] = useState([]);
-    const [loading,setLoading] = useState(true)
     const [createStaff, setCreateStaff] = useState(false);
 
     const fetchStaff = async () =>{
@@ -15,8 +14,6 @@ const StaffManagement = () => {
         } catch (error) {
             console.log(error);
             
-        }finally{
-            setLoading(false);
         }
     }
     useEffect(() => {

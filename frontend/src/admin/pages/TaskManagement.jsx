@@ -7,7 +7,6 @@ const TaskManagement = () => {
   const [task, setTask] = useState([]);
   const [reassigningStaff,setReassigningStaff] = useState(false);
   const [selectedTask,setSelectedTask] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   const fetchTasks = async () => {
     try {
@@ -15,8 +14,6 @@ const TaskManagement = () => {
       setTask(res.data.tasks);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
 
